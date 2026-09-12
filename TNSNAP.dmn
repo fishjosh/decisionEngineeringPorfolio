@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1r4mt9q" name="SNAP Benefits" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.51.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <decision id="Decision_12kxh63" name="TN SNAP Max Benefit Amount">
+    <variable id="Variable_1" name="TN SNAP Max Benefit Amount" typeRef="Any" />
+    <informationRequirement id="InformationRequirement_0n4skyn">
+      <requiredInput href="#InputData_0ltnpdu" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1f6e538">
+      <requiredInput href="#InputData_14blc48" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0o7dfsh">
+      <requiredInput href="#InputData_1ouosu9" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1j7i55o" hitPolicy="FIRST">
+      <input id="Input_1" label="Gross Income" biodi:width="192">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>`Gross Income`</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0357efi" label="Net Income" biodi:width="181">
+        <inputExpression id="LiteralExpression_1k4xpaa" typeRef="number">
+          <text>`Net Income`</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1ejoojf" label="Household Size">
+        <inputExpression id="LiteralExpression_1234wcz" typeRef="number">
+          <text>`Household Size`</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Eligible?" typeRef="number" />
+      <rule id="DecisionRule_1l8bnqk">
+        <inputEntry id="UnaryTests_18u6hjh">
+          <text>&lt;= 2608</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fd2kxi">
+          <text>&lt;= 1304</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yriiao">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yvlcea">
+          <text>298</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1089z9r">
+        <inputEntry id="UnaryTests_092digf">
+          <text>&lt;= 3526</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_067go58">
+          <text>&lt;= 1763</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oifw9f">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02clsxl">
+          <text>546</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hiisc5">
+        <inputEntry id="UnaryTests_0ii9olr">
+          <text>&lt;= 4442</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08m1u2f">
+          <text>&lt;= 2221</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08mx6t5">
+          <text>3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nj3dw7">
+          <text>785</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_088lwy7">
+        <inputEntry id="UnaryTests_12d87oo">
+          <text>&lt;= 5358</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fe2x76">
+          <text>&lt;= 2679</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sn9hrz">
+          <text>4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02k45z3">
+          <text>994</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pa4td7">
+        <inputEntry id="UnaryTests_1tfh3iu">
+          <text>&lt;= 6276</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bphp43">
+          <text>&lt;= 3138</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hcmc13">
+          <text>5</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0iqfung">
+          <text>1183</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_17oawik">
+        <inputEntry id="UnaryTests_1nfpo3n">
+          <text>&lt;= 7192</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yk28er">
+          <text>&lt;= 3596</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1suttx9">
+          <text>6</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pp1y2a">
+          <text>1421</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0k0del4">
+        <inputEntry id="UnaryTests_0uw58e7">
+          <text>&lt;= 8108</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_000lv84">
+          <text>&lt;= 4054</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_174eypv">
+          <text>7</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06i0c01">
+          <text>1571</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02u1rbn">
+        <inputEntry id="UnaryTests_1y45qkx">
+          <text>&lt;= (`Household Size` - 7) * 916 + 8108</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0alkr36">
+          <text>&lt;= (`Household Size` - 7) * 458 + 4054</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ofhktf">
+          <text>&gt; 7</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0r7nl98">
+          <text>((`Household Size` - 7) * 218) + 1571</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rd5z1p">
+        <inputEntry id="UnaryTests_1h5xtf9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l2tgp7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0649yc5">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1lij7a5">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0ltnpdu" name="Gross Income" />
+  <inputData id="InputData_14blc48" name="Net Income" />
+  <inputData id="InputData_1ouosu9" name="Household Size" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="Decision_12kxh63_di" dmnElementRef="Decision_12kxh63">
+        <dc:Bounds height="80" width="180" x="290" y="360" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0ceeevu" dmnElementRef="InputData_0ltnpdu">
+        <dc:Bounds height="45" width="125" x="148" y="608" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0anhsj2" dmnElementRef="InformationRequirement_0n4skyn">
+        <di:waypoint x="211" y="608" />
+        <di:waypoint x="335" y="460" />
+        <di:waypoint x="335" y="440" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0grauez" dmnElementRef="InputData_14blc48">
+        <dc:Bounds height="45" width="125" x="317" y="608" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1s4wpc3" dmnElementRef="InformationRequirement_1f6e538">
+        <di:waypoint x="380" y="608" />
+        <di:waypoint x="380" y="460" />
+        <di:waypoint x="380" y="440" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1nbtix9" dmnElementRef="InputData_1ouosu9">
+        <dc:Bounds height="45" width="125" x="477" y="608" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0vt4rmz" dmnElementRef="InformationRequirement_0o7dfsh">
+        <di:waypoint x="540" y="608" />
+        <di:waypoint x="425" y="460" />
+        <di:waypoint x="425" y="440" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
