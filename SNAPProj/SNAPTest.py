@@ -1,3 +1,5 @@
+#Testing my TNSNAP rules against expected results. Basic functions provided by AI but I added a few tests of my own to verify a few different edge cases. Such as expected passes, or large household sizes.
+
 import os
 from pathlib import Path
 
